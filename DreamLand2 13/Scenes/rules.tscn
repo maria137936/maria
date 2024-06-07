@@ -1,0 +1,547 @@
+[gd_scene load_steps=30 format=3 uid="uid://dqbaxrnw50l3a"]
+
+[ext_resource type="Script" path="res://Scripts/Rules.cs" id="1_sjwhf"]
+[ext_resource type="Texture2D" uid="uid://2t1gufwrieuo" path="res://Photos/captur1.png" id="2_w4g7m"]
+[ext_resource type="FontFile" uid="uid://bbtnrkgmhmpgm" path="res://fonts/SuperMario256.ttf" id="3_nlk3n"]
+[ext_resource type="Texture2D" uid="uid://cly5wphw6i3os" path="res://Photos/Worn-Parchment.png" id="4_xcy0o"]
+[ext_resource type="Texture2D" uid="uid://bnk6wpg65ln3c" path="res://Photos/Z.png" id="5_j2as4"]
+[ext_resource type="Texture2D" uid="uid://bfxjhn3d6of36" path="res://Photos/Q.png" id="6_ux6j3"]
+[ext_resource type="Texture2D" uid="uid://bifwl0rin1dr7" path="res://Photos/S.png" id="7_kmsat"]
+[ext_resource type="Texture2D" uid="uid://ckqxgs7q1thc8" path="res://Photos/D.png" id="8_5gij3"]
+[ext_resource type="Texture2D" uid="uid://d2gv7o0xjt1se" path="res://Photos/SHIFTALTERNATIVE.png" id="9_pc3ys"]
+[ext_resource type="Texture2D" uid="uid://dlelduo48bf56" path="res://Photos/SPACEALTERNATIVE.png" id="10_p3ix0"]
+[ext_resource type="Texture2D" uid="uid://ddaw06sqmwi12" path="res://Photos/E.png" id="11_vb7f6"]
+[ext_resource type="Texture2D" uid="uid://bvs58mf8sr81f" path="res://Photos/mouse_light.png" id="12_0q0q1"]
+[ext_resource type="Texture2D" uid="uid://dmtr44okohggu" path="res://Photos/rectangle wooden button.png" id="13_y2tc4"]
+[ext_resource type="Texture2D" uid="uid://bkmpunqcc7tvi" path="res://Photos/Right-Arrow.png" id="14_xg3l3"]
+[ext_resource type="Texture2D" uid="uid://bu3h4opormao" path="res://Photos/Left-Arrow.png" id="15_4kxdt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mbs1x"]
+font = ExtResource("3_nlk3n")
+font_size = 47
+font_color = Color(0.996078, 0, 0.0784314, 1)
+outline_size = 4
+outline_color = Color(0.0156863, 0.0156863, 0.0156863, 1)
+shadow_size = 11
+shadow_color = Color(0, 0, 0, 0.811765)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6chm6"]
+font = ExtResource("3_nlk3n")
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.854902)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fy685"]
+font = ExtResource("3_nlk3n")
+font_size = 35
+font_color = Color(0.376471, 0.376471, 0.376471, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m38jf"]
+font = ExtResource("3_nlk3n")
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.788235)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d28xn"]
+font = ExtResource("3_nlk3n")
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.760784)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aa2ji"]
+font = ExtResource("3_nlk3n")
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.780392)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6m0an"]
+font = ExtResource("3_nlk3n")
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+shadow_size = 3
+shadow_color = Color(0, 0, 0, 0.823529)
+
+[sub_resource type="LabelSettings" id="LabelSettings_y3xhn"]
+font = ExtResource("3_nlk3n")
+font_size = 19
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+outline_size = 6
+outline_color = Color(0.490196, 0.164706, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qwv03"]
+font = ExtResource("3_nlk3n")
+font_size = 14
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0rb7a"]
+font = ExtResource("3_nlk3n")
+font_size = 17
+font_color = Color(0.992157, 0.494118, 0.160784, 1)
+outline_size = 4
+outline_color = Color(0.490196, 0.164706, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.898039)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aflld"]
+font = ExtResource("3_nlk3n")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3nqgc"]
+font = ExtResource("3_nlk3n")
+font_size = 38
+font_color = Color(1, 1, 0.0745098, 1)
+outline_size = 4
+outline_color = Color(0.0431373, 0.0431373, 0.0431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k8l2n"]
+font = ExtResource("3_nlk3n")
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ffvg"]
+font = ExtResource("3_nlk3n")
+font_size = 26
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Rules" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sjwhf")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -8.0
+offset_top = -2.0
+offset_right = 1910.0
+offset_bottom = 1099.0
+texture = ExtResource("2_w4g7m")
+expand_mode = 1
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -102.0
+offset_top = 26.0
+offset_right = 130.0
+offset_bottom = 77.0
+grow_horizontal = 2
+text = "story"
+label_settings = SubResource("LabelSettings_mbs1x")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ControlParchment" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.5
+offset_top = -210.5
+offset_right = 336.5
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xcy0o")
+
+[node name="Control" type="Control" parent="ControlParchment"]
+anchors_preset = 0
+offset_left = -10.5
+offset_top = -26.0
+offset_right = 29.5
+offset_bottom = 14.0
+
+[node name="Z" type="TextureRect" parent="ControlParchment/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 229.5
+offset_top = 93.0
+offset_right = 209.5
+offset_bottom = 94.0
+texture = ExtResource("5_j2as4")
+
+[node name="Q" type="TextureRect" parent="ControlParchment/Control"]
+layout_mode = 0
+offset_left = 201.5
+offset_top = 116.0
+offset_right = 221.5
+offset_bottom = 137.0
+texture = ExtResource("6_ux6j3")
+
+[node name="S" type="TextureRect" parent="ControlParchment/Control"]
+layout_mode = 0
+offset_left = 229.5
+offset_top = 115.0
+offset_right = 249.5
+offset_bottom = 136.0
+texture = ExtResource("7_kmsat")
+
+[node name="D" type="TextureRect" parent="ControlParchment/Control"]
+layout_mode = 0
+offset_left = 258.5
+offset_top = 114.0
+offset_right = 278.5
+offset_bottom = 135.0
+texture = ExtResource("8_5gij3")
+
+[node name="MoveLabel" type="Label" parent="ControlParchment/Control"]
+layout_mode = 0
+offset_left = 358.5
+offset_top = 114.0
+offset_right = 449.5
+offset_bottom = 140.0
+text = ":    Move"
+label_settings = SubResource("LabelSettings_6chm6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="ControlParchment"]
+anchors_preset = 0
+offset_left = -10.5
+offset_top = -26.0
+offset_right = 29.5
+offset_bottom = 14.0
+
+[node name="Shift" type="TextureRect" parent="ControlParchment/Control2"]
+layout_mode = 0
+offset_left = 176.5
+offset_top = 157.0
+offset_right = 225.5
+offset_bottom = 178.0
+texture = ExtResource("9_pc3ys")
+
+[node name="Plus" type="Label" parent="ControlParchment/Control2"]
+layout_mode = 0
+offset_left = 227.5
+offset_top = 153.0
+offset_right = 267.5
+offset_bottom = 192.0
+text = "+"
+label_settings = SubResource("LabelSettings_fy685")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Z" type="TextureRect" parent="ControlParchment/Control2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 274.5
+offset_top = 157.0
+offset_right = 254.5
+offset_bottom = 158.0
+texture = ExtResource("5_j2as4")
+
+[node name="RunLabel" type="Label" parent="ControlParchment/Control2"]
+layout_mode = 0
+offset_left = 358.5
+offset_top = 165.0
+offset_right = 429.5
+offset_bottom = 188.0
+text = ":    Run"
+label_settings = SubResource("LabelSettings_m38jf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control3" type="Control" parent="ControlParchment"]
+anchors_preset = 0
+offset_left = -10.5
+offset_top = -26.0
+offset_right = 29.5
+offset_bottom = 14.0
+
+[node name="Space" type="TextureRect" parent="ControlParchment/Control3"]
+layout_mode = 0
+offset_left = 189.5
+offset_top = 210.0
+offset_right = 287.5
+offset_bottom = 231.0
+texture = ExtResource("10_p3ix0")
+
+[node name="JumpLabel" type="Label" parent="ControlParchment/Control3"]
+layout_mode = 0
+offset_left = 357.5
+offset_top = 208.0
+offset_right = 446.5
+offset_bottom = 231.0
+text = ":    Jump"
+label_settings = SubResource("LabelSettings_d28xn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control4" type="Control" parent="ControlParchment"]
+anchors_preset = 0
+offset_left = -10.5
+offset_top = -26.0
+offset_right = 29.5
+offset_bottom = 14.0
+
+[node name="E" type="TextureRect" parent="ControlParchment/Control4"]
+layout_mode = 0
+offset_left = 236.5
+offset_top = 253.0
+offset_right = 256.5
+offset_bottom = 274.0
+texture = ExtResource("11_vb7f6")
+
+[node name="OpenChestLabel" type="Label" parent="ControlParchment/Control4"]
+layout_mode = 0
+offset_left = 358.5
+offset_top = 249.0
+offset_right = 520.5
+offset_bottom = 272.0
+text = ":    Open a chest"
+label_settings = SubResource("LabelSettings_aa2ji")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control5" type="Control" parent="ControlParchment"]
+anchors_preset = 0
+offset_left = -10.5
+offset_top = -26.0
+offset_right = 29.5
+offset_bottom = 14.0
+
+[node name="Mouse" type="TextureRect" parent="ControlParchment/Control5"]
+layout_mode = 0
+offset_left = 228.5
+offset_top = 289.0
+offset_right = 262.5
+offset_bottom = 337.0
+texture = ExtResource("12_0q0q1")
+
+[node name="CameraCtrlLabel" type="Label" parent="ControlParchment/Control5"]
+layout_mode = 0
+offset_left = 357.5
+offset_top = 297.0
+offset_right = 583.5
+offset_bottom = 320.0
+text = ":    Camera Controller"
+label_settings = SubResource("LabelSettings_6m0an")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RulesParchment" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.5
+offset_top = -210.5
+offset_right = 336.5
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xcy0o")
+
+[node name="WinLabel" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 162.5
+offset_top = 49.0
+offset_right = 509.5
+offset_bottom = 72.0
+text = "to win the game , you must : 
+"
+label_settings = SubResource("LabelSettings_y3xhn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rule1" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 159.5
+offset_top = 88.0
+offset_right = 500.5
+offset_bottom = 111.0
+text = "kill every monster of every level 
+"
+label_settings = SubResource("LabelSettings_qwv03")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rule2" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 107.5
+offset_top = 118.0
+offset_right = 598.5
+offset_bottom = 141.0
+text = "You can kill a monster by jumping on their head
+"
+label_settings = SubResource("LabelSettings_qwv03")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rule3" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 14.5
+offset_top = 174.0
+offset_right = 685.5
+offset_bottom = 197.0
+text = "to go from level 1 to level 2 , you must :
+"
+label_settings = SubResource("LabelSettings_0rb7a")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rule4" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 250.5
+offset_top = 215.0
+offset_right = 387.5
+offset_bottom = 238.0
+text = "open the door"
+label_settings = SubResource("LabelSettings_aflld")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rule5" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 16.5
+offset_top = 240.0
+offset_right = 682.5
+offset_bottom = 263.0
+text = "the  door is only open if you have a key and kill all the monsters
+"
+label_settings = SubResource("LabelSettings_qwv03")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rule6" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 102.5
+offset_top = 272.0
+offset_right = 599.5
+offset_bottom = 295.0
+text = "the key can be found in a chest hidden in the level
+"
+label_settings = SubResource("LabelSettings_qwv03")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GoodLuckLabel" type="Label" parent="RulesParchment"]
+layout_mode = 0
+offset_left = 205.5
+offset_top = 330.0
+offset_right = 479.5
+offset_bottom = 372.0
+text = "Good luck ! "
+label_settings = SubResource("LabelSettings_3nqgc")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StoryParchment" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -336.5
+offset_top = -210.5
+offset_right = 336.5
+offset_bottom = 210.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_xcy0o")
+
+[node name="Label2" type="Label" parent="StoryParchment"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -11.5
+offset_right = 29.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Sophia, a girl who loves adventures,
+
+finds herself on an island called DreamLand. 
+
+With the help of her 2 friends , 
+
+She is looking for a diamond hidden by her grandmother
+
+and has to go through many hardship to find it.
+
+help her with this quest , she needs you !"
+label_settings = SubResource("LabelSettings_k8l2n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PreviewButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -143.0
+offset_right = 259.0
+offset_bottom = -31.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("13_y2tc4")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="PreviewButton"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 39.0
+offset_right = 176.0
+offset_bottom = 69.0
+text = "preview"
+label_settings = SubResource("LabelSettings_2ffvg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RightArrowButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.501
+offset_left = -266.0
+offset_top = -10.5
+offset_right = -206.0
+offset_bottom = 38.865
+grow_horizontal = 0
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("14_xg3l3")
+stretch_mode = 0
+
+[node name="LeftArrowButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 226.0
+offset_top = -22.5
+offset_right = 276.0
+offset_bottom = 27.5
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("15_4kxdt")
+stretch_mode = 0
+
+[connection signal="pressed" from="PreviewButton" to="." method="_on_preview_button_pressed"]
+[connection signal="pressed" from="RightArrowButton" to="." method="_on_right_arrow_button_pressed"]
+[connection signal="pressed" from="LeftArrowButton" to="." method="_on_left_arrow_button_pressed"]

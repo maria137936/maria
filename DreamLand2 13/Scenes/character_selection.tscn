@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=3 uid="uid://bcw43uai2x0j1"]
+
+[ext_resource type="Script" path="res://Scripts/character_selection.cs" id="1_b8kjt"]
+[ext_resource type="PackedScene" uid="uid://ci5rywnvxosb7" path="res://Prefabs/sophia_Player_Base.tscn" id="1_pf8l3"]
+[ext_resource type="PackedScene" uid="uid://c0o3150t4hnfi" path="res://Prefabs/gobot_Player_Base.tscn" id="2_icb7k"]
+[ext_resource type="PackedScene" uid="uid://40me7wmnnb8w" path="res://Prefabs/GDbot_Player_Base.tscn" id="3_lln5q"]
+[ext_resource type="FontFile" uid="uid://bbtnrkgmhmpgm" path="res://fonts/SuperMario256.ttf" id="5_q7i0y"]
+[ext_resource type="Material" uid="uid://bgy0wgnyc8o6g" path="res://Assets/outdoor_environment/sky_mat2.tres" id="5_u3g4o"]
+[ext_resource type="Texture2D" uid="uid://dmtr44okohggu" path="res://Photos/rectangle wooden button.png" id="6_touv8"]
+[ext_resource type="PackedScene" uid="uid://djm11jl57iaxo" path="res://Prefabs/outdoor_environment_no_player.tscn" id="8_rdko2"]
+
+[sub_resource type="Sky" id="Sky_gbnlb"]
+sky_material = ExtResource("5_u3g4o")
+
+[sub_resource type="Environment" id="Environment_u8qgo"]
+background_mode = 2
+sky = SubResource("Sky_gbnlb")
+ambient_light_color = Color(1, 0.870588, 0.541176, 1)
+ambient_light_sky_contribution = 0.5
+tonemap_exposure = 0.9
+tonemap_white = 1.4
+ssao_enabled = true
+ssao_radius = 3.0
+ssao_intensity = 4.5
+ssao_detail = 1.52
+ssao_sharpness = 0.67
+glow_enabled = true
+glow_intensity = 2.07
+glow_strength = 0.68
+glow_bloom = 0.1
+fog_enabled = true
+fog_light_color = Color(0.137255, 0.72549, 0.713726, 1)
+fog_light_energy = 0.4
+fog_density = 0.0005
+fog_sky_affect = 0.0
+fog_height = 1.0
+fog_height_density = 0.25
+adjustment_enabled = true
+adjustment_contrast = 1.03
+adjustment_saturation = 1.37
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_sj4h8"]
+size = Vector2(3, 3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3b5m2"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lok8q"]
+font = ExtResource("5_q7i0y")
+font_size = 60
+font_color = Color(0.929412, 0.8, 0.164706, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.635294)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4t7p"]
+font = ExtResource("5_q7i0y")
+font_size = 27
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CharacterSelection" type="Node3D"]
+script = ExtResource("1_b8kjt")
+
+[node name="Characters" type="Node" parent="."]
+
+[node name="Playersophia" parent="Characters" instance=ExtResource("1_pf8l3")]
+transform = Transform3D(2.76636, 0, -1.16071, 0, 3, 0, 1.16071, 0, 2.76636, 12.4196, 6.53446, 10.6748)
+
+[node name="PlayerGobot" parent="Characters" instance=ExtResource("2_icb7k")]
+transform = Transform3D(0.983163, 0, 0.182733, 0, 1, 0, -0.182733, 0, 0.983163, 10.5304, 6.53446, 10.1704)
+
+[node name="PlayerGDbot" parent="Characters" instance=ExtResource("3_lln5q")]
+transform = Transform3D(0.638835, 0, -0.769343, 0, 1, 0, 0.769343, 0, 0.638835, 14.1427, 6.53446, 11.6693)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.92212, 0.0303562, -0.385712, 2.35769e-09, 0.996917, 0.0784591, 0.386904, -0.0723487, 0.919277, 11.1201, 7.73446, 13.6132)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_u8qgo")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.84424, 0, -0.773808, 0, 2, 0, 0.773808, 0, 1.84424, 12.6677, 6.53446, 9.92474)
+mesh = SubResource("PlaneMesh_sj4h8")
+surface_material_override/0 = SubResource("StandardMaterial3D_3b5m2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.394616, 0.918846, 0, -0.918846, 0.394616, 3.78073, 1.10965, 8.25847)
+
+[node name="CharacterLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -142.0
+offset_top = 20.0
+offset_right = 104.0
+offset_bottom = 111.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = " NAME"
+label_settings = SubResource("LabelSettings_lok8q")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 413.0
+offset_top = -112.0
+offset_right = 634.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("6_touv8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 26.0
+offset_right = 162.0
+offset_bottom = 83.0
+text = "start"
+label_settings = SubResource("LabelSettings_f4t7p")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Node" parent="." instance=ExtResource("8_rdko2")]
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
