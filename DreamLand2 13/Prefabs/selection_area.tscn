@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://bemmgraut0e8e"]
+
+[ext_resource type="Script" path="res://Scripts/SelectionArea.cs" id="1_una4u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_82sfy"]
+radius = 0.346563
+height = 1.83706
+
+[sub_resource type="TorusMesh" id="TorusMesh_hmk23"]
+inner_radius = 0.46
+outer_radius = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hck5e"]
+albedo_color = Color(0.996078, 0.352941, 0.427451, 1)
+emission_enabled = true
+emission = Color(1, 0.505882, 0.596078, 1)
+
+[node name="SelectionArea" type="Area3D"]
+script = ExtResource("1_una4u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.999999, -0.0010821, 0, 0.0010821, 0.999999, 0, 0, 0, 1, 0, 0.713239, 0)
+shape = SubResource("CapsuleShape3D_82sfy")
+
+[node name="Selection" type="MeshInstance3D" parent="."]
+mesh = SubResource("TorusMesh_hmk23")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_hck5e")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -1,0 +1,163 @@
+[gd_scene load_steps=16 format=3 uid="uid://so18hckx3syq"]
+
+[ext_resource type="Script" path="res://Scripts/Mob1.cs" id="1_tkie8"]
+[ext_resource type="PackedScene" uid="uid://bb15s2222kbth" path="res://Assets/shared/models/beetle_bot/beetlebot_skin.tscn" id="2_rcebp"]
+[ext_resource type="Texture2D" uid="uid://d070jfaxsmdif" path="res://Assets/shared/models/beetle_bot/beetle_bot_fused_beetle_albedo.png" id="3_q1x3n"]
+[ext_resource type="Texture2D" uid="uid://c5d4ddwlbcsus" path="res://Assets/shared/models/beetle_bot/beetle_bot_fused_beetle_roughness.png" id="4_dtapx"]
+[ext_resource type="Texture2D" uid="uid://cletbxaglon1q" path="res://Assets/shared/models/beetle_bot/beetle_bot_fused_beetle_normal.png" id="5_4y5nm"]
+[ext_resource type="Shader" path="res://Assets/shared/models/shared/shaders/screen_shader.gdshader" id="6_m2032"]
+[ext_resource type="Texture2D" uid="uid://bvxkh2pa1nqdq" path="res://Assets/shared/models/shared/textures/eye_mask.png" id="7_xoqhr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgyik"]
+resource_local_to_scene = true
+resource_name = "BeetleMat"
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("3_q1x3n")
+metallic_texture = ExtResource("4_dtapx")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("4_dtapx")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("5_4y5nm")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rd0yh"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("6_m2032")
+shader_parameter/intensity = 2.0
+shader_parameter/screen_color = Color(0.619608, 0.862745, 0, 0.0784314)
+shader_parameter/screen_red_offset = Vector2(0, 0)
+shader_parameter/screen_green_offset = Vector2(0, 0)
+shader_parameter/screen_blue_offset = Vector2(0, 0)
+shader_parameter/pixel_size = 32.0
+shader_parameter/face_texture = ExtResource("7_xoqhr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_avuho"]
+size = Vector3(0.496095, 0.420571, 0.865929)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wy0a2"]
+size = Vector3(1.49052, 0.557244, 1.32764)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_66tvs"]
+size = Vector3(1.16504, 0.337057, 1.57263)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ix6cs"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70mf5"]
+bg_color = Color(0.847059, 0, 0.0705882, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2urtl"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Mob1" type="CharacterBody3D" node_paths=PackedStringArray("points", "animPlayer")]
+script = ExtResource("1_tkie8")
+points = []
+animPlayer = NodePath("BeetlebotSkin/beetle_bot/AnimationPlayer")
+
+[node name="BeetlebotSkin" parent="." instance=ExtResource("2_rcebp")]
+
+[node name="Skeleton3D" parent="BeetlebotSkin/beetle_bot/Armature" index="0"]
+bones/1/position = Vector3(-0.4584, 0.0266282, 0.113887)
+bones/1/rotation = Quaternion(0, 0, 0.550009, 0.835159)
+bones/2/position = Vector3(-9.40822e-06, 1.67508e-05, -3.48687e-06)
+bones/2/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/6/position = Vector3(-0.314593, -0.337712, 0.00443449)
+bones/6/rotation = Quaternion(0, 0, 0.843314, 0.537421)
+bones/7/position = Vector3(2.68221e-07, 9.76026e-06, -7.27968e-06)
+bones/7/rotation = Quaternion(-0.707107, 3.74339e-23, 6.28037e-16, 0.707107)
+bones/11/position = Vector3(-0.34543, 0.2725, 0.00443466)
+bones/11/rotation = Quaternion(5.89931e-09, -2.56727e-08, 0.530788, 0.847505)
+bones/12/position = Vector3(-4.26387e-06, 1.21131e-05, -9.202e-06)
+bones/12/rotation = Quaternion(-0.707107, 3.12603e-07, -2.23041e-07, 0.707107)
+bones/16/position = Vector3(0.0212553, -0.02, 0.35)
+bones/16/rotation = Quaternion(0, 0.021007, 0, 0.999779)
+bones/17/rotation = Quaternion(0.282405, 0.188461, 0.747715, 0.570659)
+bones/18/rotation = Quaternion(-0.638795, -0.0123789, -0.0207518, 0.768998)
+bones/19/rotation = Quaternion(0.126559, 0.221491, 0.822391, 0.508525)
+bones/20/rotation = Quaternion(-0.74657, -0.0114547, -0.0242654, 0.664766)
+bones/21/rotation = Quaternion(0.229792, 0.126869, 0.722964, 0.63908)
+bones/22/rotation = Quaternion(-0.756172, -0.0110302, -0.0244596, 0.653822)
+bones/24/rotation = Quaternion(0.246902, -0.128348, -0.776013, 0.566012)
+bones/25/rotation = Quaternion(-0.659675, 0.0120916, 0.0214301, 0.751148)
+bones/26/rotation = Quaternion(0.100443, -0.263429, -0.940012, 0.192078)
+bones/27/rotation = Quaternion(-0.737837, 0.0116216, 0.0239815, 0.674453)
+bones/28/rotation = Quaternion(0.410773, -0.159636, -0.500249, 0.745341)
+bones/29/rotation = Quaternion(-0.746321, 0.0112197, 0.024141, 0.665054)
+bones/30/position = Vector3(0.4584, 0.0266282, 0.00443449)
+bones/30/rotation = Quaternion(0, 0, -0.550009, 0.835159)
+bones/31/position = Vector3(1.3331e-05, 2.43038e-05, -1.3493e-05)
+bones/31/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/35/position = Vector3(0.190873, -0.499193, 0.00443449)
+bones/35/rotation = Quaternion(0, 0, -0.95811, 0.286401)
+bones/36/position = Vector3(4.99189e-07, 8.76933e-06, -6.25104e-06)
+bones/40/position = Vector3(0.34543, 0.433982, 0.113888)
+bones/40/rotation = Quaternion(1.2693e-08, 2.30819e-08, -0.278876, 0.960327)
+bones/41/position = Vector3(4.55172e-06, 9.8822e-06, -3.38818e-06)
+bones/41/rotation = Quaternion(-0.707107, -3.12603e-07, 2.23041e-07, 0.707107)
+bones/42/rotation = Quaternion(0.560985, -0.560986, -0.430459, 0.430459)
+bones/43/rotation = Quaternion(0.430459, -0.430459, -0.560986, 0.560985)
+
+[node name="Beetle" parent="BeetlebotSkin/beetle_bot/Armature/Skeleton3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999799, -0.020035, 0, 0.020035, 0.999799, -0.0291189, -0.0815755, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_dgyik")
+surface_material_override/1 = SubResource("ShaderMaterial_rd0yh")
+
+[node name="AnimationPlayer" parent="BeetlebotSkin/beetle_bot" index="1"]
+autoplay = "walk"
+
+[node name="AnimationTree" parent="BeetlebotSkin" index="1"]
+active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999895, -0.0144683, 0, 0.0144683, 0.999895, -0.0212773, 0.19575, 0.14701)
+shape = SubResource("BoxShape3D_avuho")
+
+[node name="Area3DTop" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DTop"]
+transform = Transform3D(0.963143, 0, 0, 0, 0.963143, 0, 0, 0, 0.963143, 0, 0.453735, 0.175896)
+shape = SubResource("BoxShape3D_wy0a2")
+
+[node name="Area3DBottom" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DBottom"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0293093, 0, 0.0952551)
+shape = SubResource("BoxShape3D_66tvs")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -7.5
+offset_right = 50.0
+offset_bottom = 7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ix6cs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_70mf5")
+max_value = 2.0
+step = 1.0
+value = 2.0
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0406361, 0.942383, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_2urtl")
+
+[connection signal="area_entered" from="Area3DTop" to="." method="_on_area_3d_top_area_entered"]
+[connection signal="area_entered" from="Area3DBottom" to="." method="_on_area_3d_bottom_area_entered"]
+
+[editable path="BeetlebotSkin"]
+[editable path="BeetlebotSkin/beetle_bot"]

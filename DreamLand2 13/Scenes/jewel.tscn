@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvj5dw1sjdsh4"]
+
+[ext_resource type="PackedScene" uid="uid://cw61g4vcs5okp" path="res://kennyasset2/kenneyassets/jewel.glb" id="1_srykm"]
+[ext_resource type="Script" path="res://Scripts/Jewel.cs" id="2_hf04a"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_x5dru"]
+radius = 0.305688
+
+[node name="Jewel" instance=ExtResource("1_srykm")]
+script = ExtResource("2_hf04a")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0479425, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(0.643246, 0, 0, 0, 0.643246, 0, 0, 0, 0.643246, 0, 0.144659, 0)
+shape = SubResource("SphereShape3D_x5dru")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

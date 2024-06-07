@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://sdwh12twh80s"]
+
+[ext_resource type="PackedScene" uid="uid://cdxxjl1itllik" path="res://Prefabs/block_moving.tscn" id="1_jr0re"]
+[ext_resource type="Script" path="res://Scripts/moving_platform_animated.cs" id="1_nx6ue"]
+
+[sub_resource type="Curve3D" id="Curve3D_fej7f"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0349169, 0.114815, -0.0208262, 0, 0, 0, 0, 0, 0, -0.0104313, 4.85291, 0.179661),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_rf6gy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kc8n5"]
+resource_name = "bloc_ping_pong"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path3D/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ejhw0"]
+_data = {
+"RESET": SubResource("Animation_rf6gy"),
+"bloc_ping_pong": SubResource("Animation_kc8n5")
+}
+
+[node name="MovingPlatformAnimated" type="Node3D" node_paths=PackedStringArray("animator")]
+script = ExtResource("1_nx6ue")
+animator = NodePath("AnimationPlayer")
+
+[node name="blockMoving" parent="." instance=ExtResource("1_jr0re")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0349169, 0.114815, -0.0208262)
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_fej7f")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+transform = Transform3D(7.44772e-09, 0.999827, -0.00516307, 0.0422601, -0.00515763, -0.999092, -0.998723, -0.00021823, -0.0422757, -0.0349169, 0.114815, -0.0208262)
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Path3D/PathFollow3D"]
+transform = Transform3D(0.931652, 0.0680028, 0.356934, -0.167779, 0.951849, 0.256582, -0.322299, -0.298931, 0.898201, 0, 0, 0)
+remote_path = NodePath("../../../blockMoving")
+update_rotation = false
+update_scale = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+playback_process_mode = 0
+speed_scale = 0.75
+libraries = {
+"": SubResource("AnimationLibrary_ejhw0")
+}
+
+[editable path="blockMoving"]
