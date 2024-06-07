@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1mjk6xna1d2v"]
+
+[ext_resource type="PackedScene" uid="uid://camd4lnrpydtp" path="res://kennyasset2/kenneyassets/buttonRound.glb" id="1_k47tq"]
+[ext_resource type="Script" path="res://Scripts/buttonRound.cs" id="2_cpc4y"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wptve"]
+size = Vector3(0.498979, 0.132478, 0.510346)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_86wdi"]
+radius = 0.194207
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_p8tt8"]
+radial_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwles"]
+albedo_color = Color(0.152941, 0.431373, 0.337255, 1)
+
+[node name="buttonRound" instance=ExtResource("1_k47tq")]
+script = ExtResource("2_cpc4y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="buttonRound2" index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buttonRound2/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00570405, 0.0309679, 0.00413321)
+shape = SubResource("BoxShape3D_wptve")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0665089, 0)
+shape = SubResource("SphereShape3D_86wdi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(-0.000143444, 0, -0.348995, 0, 0.0197688, 0, 0.328789, 0, -0.000152297, 0, 0.0784969, 0)
+mesh = SubResource("CylinderMesh_p8tt8")
+surface_material_override/0 = SubResource("StandardMaterial3D_wwles")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

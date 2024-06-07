@@ -1,0 +1,96 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhrir34u5syiy"]
+
+[ext_resource type="Script" path="res://Scripts/mob2.cs" id="1_ewjfk"]
+[ext_resource type="PackedScene" path="res://Assets/shared/models/bee_bot/bee_bot_skin.tscn" id="1_qcptl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjj02"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ab83c"]
+size = Vector3(1, 0.521479, 1.21581)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_byuwi"]
+size = Vector3(1, 0.627447, 1.79922)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ix6cs"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70mf5"]
+bg_color = Color(0.847059, 0, 0.0705882, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1nynb"]
+viewport_path = NodePath("SubViewport")
+
+[node name="mob2" type="CharacterBody3D" node_paths=PackedStringArray("points", "animPlayer")]
+script = ExtResource("1_ewjfk")
+points = []
+animPlayer = NodePath("BeebotSkin/bee_bot/AnimationPlayer")
+
+[node name="BeebotSkin" parent="." instance=ExtResource("1_qcptl")]
+
+[node name="Skeleton3D" parent="BeebotSkin/bee_bot/Armature" index="0"]
+bones/12/rotation = Quaternion(-0.465373, -0.488461, -0.738123, 0.00285091)
+bones/16/rotation = Quaternion(-0.00901972, 0.641118, 0.766993, 0.0246584)
+bones/20/rotation = Quaternion(-0.777935, -0.394029, -0.417762, 0.255016)
+bones/24/rotation = Quaternion(-0.361782, -0.0456319, -0.753329, 0.547291)
+bones/26/rotation = Quaternion(-0.465142, 0.507448, 0.725201, 0.0149241)
+bones/27/rotation = Quaternion(-0.399628, -1.25243e-07, -6.04819e-08, 0.916678)
+bones/30/rotation = Quaternion(-0.00901979, -0.641118, -0.766993, 0.0246584)
+bones/34/rotation = Quaternion(-0.777935, 0.394029, 0.417762, 0.255016)
+bones/36/rotation = Quaternion(0.185854, 0.0281299, 0.126675, 0.973972)
+bones/38/rotation = Quaternion(-0.361782, 0.0456318, 0.753329, 0.547291)
+
+[node name="AnimationTree" parent="BeebotSkin" index="1"]
+active = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.269907, 0, 0, 0, 0.269907, 0, 0, 0, 0.269907, 0, 0, -0.0187721)
+shape = SubResource("BoxShape3D_jjj02")
+
+[node name="Area3DTop" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DTop"]
+transform = Transform3D(0.558563, 0, 0, 0, 0.558563, 0, 0, 0, 0.558563, 0, 0.3558, -0.00293878)
+shape = SubResource("BoxShape3D_ab83c")
+
+[node name="Area3DBottom" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0527209)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DBottom"]
+transform = Transform3D(0.441266, 0, 0, 0, 0.441266, 0, 0, 0, 0.441266, 0, 0, 0)
+shape = SubResource("BoxShape3D_byuwi")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(256, 256)
+render_target_update_mode = 4
+
+[node name="HealthBar" type="ProgressBar" parent="SubViewport"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.5
+offset_top = -5.0
+offset_right = 37.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_ix6cs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_70mf5")
+max_value = 2.0
+step = 1.0
+value = 2.0
+show_percentage = false
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00117478, 0.650378, 0.123144)
+billboard = 1
+texture = SubResource("ViewportTexture_1nynb")
+
+[connection signal="area_entered" from="Area3DTop" to="." method="_on_area_3d_top_area_entered"]
+[connection signal="area_entered" from="Area3DBottom" to="." method="_on_area_3d_bottom_area_entered"]
+
+[editable path="BeebotSkin"]
+[editable path="BeebotSkin/bee_bot"]

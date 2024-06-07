@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://8mjjgkwigkv7"]
+
+[ext_resource type="Script" path="res://Scripts/DoorSystem.cs" id="1_xro6r"]
+[ext_resource type="PackedScene" uid="uid://iordolr1q3g8" path="res://Prefabs/door_large_closed.tscn" id="2_lmkg3"]
+[ext_resource type="PackedScene" uid="uid://8aih0dbum17i" path="res://Prefabs/door_large_open.tscn" id="3_aqlje"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5j5xm"]
+size = Vector3(1, 0.916683, 0.807954)
+
+[node name="DoorSystem" type="Node3D" node_paths=PackedStringArray("closedDoor")]
+script = ExtResource("1_xro6r")
+closedDoor = NodePath("doorLargeClosed")
+
+[node name="doorLargeOpen" parent="." instance=ExtResource("3_aqlje")]
+
+[node name="doorLargeClosed" parent="." instance=ExtResource("2_lmkg3")]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 0.0444974, 0.521553, -0.0553993)
+shape = SubResource("BoxShape3D_5j5xm")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

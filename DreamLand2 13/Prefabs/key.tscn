@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bn34e2ea0ns4s"]
+
+[ext_resource type="PackedScene" uid="uid://cjhn5kp64quru" path="res://kennyasset2/kenneyassets/key.glb" id="1_tuvts"]
+[ext_resource type="Script" path="res://Scripts/key.cs" id="2_3jh4p"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_03dwc"]
+radius = 0.17383
+
+[node name="key" instance=ExtResource("1_tuvts")]
+script = ExtResource("2_3jh4p")
+
+[node name="Area3D" type="Area3D" parent="." index="1"]
+transform = Transform3D(1.07887, 0, 0.000583725, 0, 1.07887, 0, -0.000583725, 0, 1.07887, 0.00267452, 0.107733, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 1.16415e-10, 0, 1, 0, -1.16415e-10, 0, 1, 0.005099, 0, 2.75882e-06)
+shape = SubResource("SphereShape3D_03dwc")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

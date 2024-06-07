@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://btavbs8uuyuek"]
+
+[ext_resource type="PackedScene" uid="uid://c0o3150t4hnfi" path="res://Prefabs/gobot_Player_Base.tscn" id="1_jonr6"]
+[ext_resource type="Script" path="res://Scripts/PlayerGobotController.cs" id="1_unhn6"]
+[ext_resource type="Texture2D" uid="uid://dq675fmt1rg8c" path="res://Assets/shared/gobot/textures/open_eye.png" id="2_g5w8t"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8pgns"]
+radius = 0.29676
+height = 1.22661
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nh5a"]
+size = Vector3(0.722532, 0.231842, 0.619248)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qm6yf"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_g5w8t")
+roughness = 0.6
+uv1_offset = Vector3(0.1, 0, 0)
+texture_repeat = false
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_flxlu"]
+resource_local_to_scene = true
+albedo_texture = ExtResource("2_g5w8t")
+roughness = 0.6
+uv1_offset = Vector3(0.1, 0, 0)
+texture_repeat = false
+
+[node name="PlayerGobotCtrl" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "camera", "animationPlayer")]
+script = ExtResource("1_unhn6")
+speed = 1.75
+acceleration = 2.0
+airAcceleration = 1.75
+gravity = 0.2
+maxTerminalVelocity = 7.5
+cameraPivot = NodePath("CamPivot")
+camera = NodePath("CamPivot/SpringArm3D/Camera3D")
+animationPlayer = NodePath("PlayerGobot/gobot/AnimationPlayer")
+
+[node name="CamPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.540137, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamPivot"]
+transform = Transform3D(-1, -7.6194e-09, 8.70901e-08, 0, 0.996195, 0.0871557, -8.74228e-08, 0.0871557, -0.996195, 0, 1.0561, -3)
+
+[node name="Camera3D" type="Camera3D" parent="CamPivot/SpringArm3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.712405, 0.005826)
+shape = SubResource("CapsuleShape3D_8pgns")
+
+[node name="Area3DGobot" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DGobot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0799189, 0.0759274)
+shape = SubResource("BoxShape3D_6nh5a")
+
+[node name="PlayerGobot" parent="." instance=ExtResource("1_jonr6")]
+
+[node name="Skeleton3D" parent="PlayerGobot/gobot/Armature" index="0"]
+bones/2/position = Vector3(0, 0.36866, 0)
+bones/2/rotation = Quaternion(0.0697318, -0.0265098, 0.00185374, 0.997212)
+bones/3/rotation = Quaternion(1, 1.4934e-10, -7.26922e-08, 7.46313e-09)
+bones/4/rotation = Quaternion(-0.351062, -0.194782, -0.0436912, 0.914826)
+bones/5/rotation = Quaternion(0.180644, 1.12797e-06, -6.17401e-06, 0.983549)
+bones/6/rotation = Quaternion(-0.190063, 0.508984, 0.155202, 0.82506)
+bones/7/rotation = Quaternion(0.376347, -1.07261e-06, 1.28768e-05, 0.926479)
+bones/8/rotation = Quaternion(-0.656067, -0.269439, -0.650484, 0.271751)
+bones/16/rotation = Quaternion(-0.659953, 0.267806, 0.646541, 0.273361)
+
+[node name="Gobot" parent="PlayerGobot/gobot/Armature/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_qm6yf")
+surface_material_override/2 = SubResource("StandardMaterial3D_flxlu")
+
+[node name="AnimationTree" parent="PlayerGobot" index="3"]
+process_callback = 0
+
+[connection signal="area_entered" from="Area3DGobot" to="." method="_on_area_3d_gobot_area_entered"]
+
+[editable path="PlayerGobot"]
+[editable path="PlayerGobot/gobot"]

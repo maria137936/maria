@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "dgSpecHash": "XTL3Lfo2sMA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\maria\\Downloads\\DreamLand2 13\\DreamLand2 13\\Dream Land 2.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\maria\\.nuget\\packages\\godot.sourcegenerators\\4.1.1\\godot.sourcegenerators.4.1.1.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\godotsharp\\4.1.1\\godotsharp.4.1.1.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.31\\microsoft.netcore.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.31\\microsoft.netcore.app.runtime.win-x64.6.0.31.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.31\\microsoft.windowsdesktop.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.31\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.31.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.31\\microsoft.aspnetcore.app.ref.6.0.31.nupkg.sha512",
+    "C:\\Users\\maria\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.31\\microsoft.aspnetcore.app.runtime.win-x64.6.0.31.nupkg.sha512"
+  ],
+  "logs": []
+}

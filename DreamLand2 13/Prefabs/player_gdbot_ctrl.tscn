@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://clrox5rdy8h6o"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerGDbotController.cs" id="1_kx6aq"]
+[ext_resource type="PackedScene" uid="uid://40me7wmnnb8w" path="res://Prefabs/GDbot_Player_Base.tscn" id="1_n8sjb"]
+[ext_resource type="Shader" path="res://Assets/shared/models/shared/shaders/screen_shader.gdshader" id="2_5ajf3"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ylrfo"]
+radius = 0.274256
+height = 1.36873
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgnhs"]
+size = Vector3(0.785055, 0.473076, 0.619813)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_a2yxn"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gdmu7"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_5ajf3")
+shader_parameter/intensity = 2.0
+shader_parameter/screen_color = Color(0.101961, 0.662745, 1, 0.0196078)
+shader_parameter/screen_red_offset = Vector2(0, 0)
+shader_parameter/screen_green_offset = Vector2(0, 0)
+shader_parameter/screen_blue_offset = Vector2(0, 0)
+shader_parameter/pixel_size = 32.0
+shader_parameter/face_texture = SubResource("ViewportTexture_a2yxn")
+
+[node name="PlayerGDbotCtrl" type="CharacterBody3D" node_paths=PackedStringArray("cameraPivot", "camera", "animationPlayer")]
+collision_layer = 3
+script = ExtResource("1_kx6aq")
+speed = 1.75
+acceleration = 2.0
+airAcceleration = 1.75
+gravity = 0.2
+maxTerminalVelocity = 7.5
+cameraPivot = NodePath("CamPivot")
+camera = NodePath("CamPivot/SpringArm3D/Camera3D")
+animationPlayer = NodePath("PlayerGDbot/gdbot/AnimationPlayer")
+
+[node name="CamPivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0296549, 0.923122, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CamPivot"]
+transform = Transform3D(-1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, -0.095, 0.75, -3.077)
+
+[node name="Camera3D" type="Camera3D" parent="CamPivot/SpringArm3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.908062, 0)
+shape = SubResource("CapsuleShape3D_ylrfo")
+
+[node name="Area3DGDbot" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DGDbot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.209318, 0)
+shape = SubResource("BoxShape3D_xgnhs")
+
+[node name="PlayerGDbot" parent="." instance=ExtResource("1_n8sjb")]
+
+[node name="gdbot_mesh" parent="PlayerGDbot/gdbot/Armature/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("ShaderMaterial_gdmu7")
+
+[connection signal="area_entered" from="Area3DGDbot" to="." method="_on_area_3d_gdbot_area_entered"]
+
+[editable path="PlayerGDbot"]
+[editable path="PlayerGDbot/gdbot"]

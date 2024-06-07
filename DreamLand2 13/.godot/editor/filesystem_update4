@@ -1,0 +1,9 @@
+res://Prefabs/player_sophia_ctrl.tscn
+res://Assets/outdoor_environment/water.tres
+res://Assets/outdoor_environment/sky/sky.gdshader
+res://Assets/outdoor_environment/sky_mat.tres
+res://Assets/world_1_env.tres
+res://Assets/outdoor_environment/grass/grass_mat.tres
+res://Assets/outdoor_environment/new_environment.tres
+res://Assets/outdoor_environment/materials/terrain/terrain_mat.tres
+res://Assets/outdoor_environment/sky_mat2.tres
